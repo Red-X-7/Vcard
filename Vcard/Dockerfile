@@ -1,8 +1,6 @@
 # See https://aka.ms/customizecontainer to learn how to customize your debug container
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
 WORKDIR /app
-# Render için portu dinamik hale getiriyoruz
 EXPOSE 8080
 
 # This stage is used to build the service project
@@ -25,7 +23,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# KRİTİK EKLEME: Render'ın portunu uygulamaya bağlıyoruz
-ENV ASPNETCORE_URLS=http://*:$PORT
+# KRİTİK: Render'ın PORT değişkenini kullan
+ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT:-8080}
 
 ENTRYPOINT ["dotnet", "Vcard.dll"]
