@@ -28,7 +28,7 @@ namespace Vcard.Controllers
                 new BusinessCard
                 {
                     Id = "red",
-                    FullName = "Red",
+                    FullName = "Red ",
                     Company = "Game Studio",
                     Title = "Unity Developer",
                     Phone = "+905xxxxxxxxx",
