@@ -1,0 +1,6 @@
+@Vcard_HostAddress = http://localhost:5224
+
+GET {{Vcard_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
